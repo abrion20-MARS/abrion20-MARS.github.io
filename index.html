@@ -144,7 +144,7 @@
     top: 20%;
     left: 50%;
     transform: translateX(-50%);
-    color: #3B82F6;
+    color: #000000;
 }
 
 .label-business {
@@ -194,34 +194,34 @@
             <div class="yinyang-container">
                 
                 <!-- Yin-Yang SVG -->
-               <svg class="yinyang" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <svg class="yinyang" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
     <!-- Outer circle border -->
     <circle cx="100" cy="100" r="98" fill="none" stroke="#94A3B8" stroke-width="2"/>
     
-    <!-- WHITE HALF (Yang - Top) - Solid white -->
-    <path d="M 100,2 A 98,98 0 0,1 100,198 A 49,49 0 0,1 100,100 A 49,49 0 0,0 100,2" 
-          fill="#FFFFFF"/>
-    
-    <!-- BLACK HALF (Yin - Bottom) - Solid black -->
+    <!-- BLACK HALF (Yin - Bottom) - Draw this FIRST -->
     <path d="M 100,2 A 98,98 0 0,0 100,198 A 49,49 0 0,0 100,100 A 49,49 0 0,1 100,2" 
           fill="#000000"/>
     
-    <!-- WHITE medium circle in top half (part of Yang) -->
-    <circle cx="100" cy="50" r="20" fill="#FFFFFF"/>
-    
-    <!-- BLACK small dot inside the white medium circle -->
-    <circle cx="100" cy="50" r="8" fill="#000000"/>
+    <!-- WHITE HALF (Yang - Top) - Draw this SECOND -->
+    <path d="M 100,2 A 98,98 0 0,1 100,198 A 49,49 0 0,1 100,100 A 49,49 0 0,0 100,2" 
+          fill="#FFFFFF"/>
     
     <!-- BLACK medium circle in bottom half (part of Yin) -->
     <circle cx="100" cy="150" r="20" fill="#000000"/>
     
     <!-- WHITE small dot inside the black medium circle -->
     <circle cx="100" cy="150" r="8" fill="#FFFFFF"/>
+    
+    <!-- WHITE medium circle in top half (part of Yang) -->
+    <circle cx="100" cy="50" r="20" fill="#FFFFFF"/>
+    
+    <!-- BLACK small dot inside the white medium circle -->
+    <circle cx="100" cy="50" r="8" fill="#000000"/>
 </svg>
 
                 <!-- Labels -->
-                <div class="label label-engineering">⚙️ ENGINEERING</div>
-                <div class="label label-business">💼 BUSINESS</div>
+<div class="label label-engineering">ENGINEERING</div>
+<div class="label label-business">BUSINESS</div>
                 
             </div>
         </div>
