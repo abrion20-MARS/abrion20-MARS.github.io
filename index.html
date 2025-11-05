@@ -17,16 +17,22 @@
             font-family: Arial, sans-serif;
             background-color: #0F172A;
             color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* Left side container */
-        .hero-left {
-            max-width: 600px;
+        /* HERO SECTION - Split screen */
+        .hero {
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
             padding: 50px;
+        }
+
+        /* LEFT SIDE - Your text (50% width) */
+        .hero-left {
+            flex: 1;
+            padding-right: 50px;
         }
 
         /* "Hello, I'm" text */
@@ -69,6 +75,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
+            display: inline-block;
         }
 
         /* Blue button */
@@ -94,29 +101,130 @@
             background-color: #3B82F6;
             color: white;
         }
+
+        /* RIGHT SIDE - Yin-Yang graphic (50% width) */
+        .hero-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Yin-Yang container */
+        .yinyang-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+        }
+
+        /* Yin-Yang SVG styling */
+        .yinyang {
+            width: 100%;
+            height: 100%;
+            animation: rotate 20s linear infinite;
+        }
+
+        /* Rotation animation */
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Labels on the yin-yang */
+        .label {
+            position: absolute;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .label-engineering {
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #3B82F6;
+        }
+
+        .label-business {
+            bottom: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #F59E0B;
+        }
+
+        /* Responsive design */
+        @media (max-width: 968px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-left {
+                padding-right: 0;
+                margin-bottom: 50px;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- LEFT SIDE CONTENT -->
-    <div class="hero-left">
+    <!-- HERO SECTION -->
+    <section class="hero">
         
-        <!-- Hello, I'm -->
-        <p class="greeting">Hello, I'm</p>
-        
-        <!-- Aiden Brion (Brion in orange) -->
-        <h1 class="name">Aiden<span class="accent">B</span></h1>
-        
-        <!-- Where Engineering Meets Business -->
-        <p class="tagline">Where Engineering Meets Business</p>
-        
-        <!-- Two buttons -->
-        <div class="buttons">
-            <a href="#projects" class="btn btn-primary">View My Work →</a>
-            <a href="#resume" class="btn btn-secondary">Download Resume</a>
+        <!-- LEFT SIDE: Your text content -->
+        <div class="hero-left">
+            <p class="greeting">Hello, I'm</p>
+            <h1 class="name">Aiden<span class="accent">B</span></h1>
+            <p class="tagline">Where Engineering Meets Business</p>
+            
+            <div class="buttons">
+                <a href="#projects" class="btn btn-primary">View My Work →</a>
+                <a href="#resume" class="btn btn-secondary">Download Resume</a>
+            </div>
         </div>
-        
-    </div>
+
+        <!-- RIGHT SIDE: Yin-Yang graphic -->
+        <div class="hero-right">
+            <div class="yinyang-container">
+                
+                <!-- Yin-Yang SVG -->
+                <svg class="yinyang" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Outer circle -->
+                    <circle cx="100" cy="100" r="98" fill="none" stroke="#3B82F6" stroke-width="2"/>
+                    
+                    <!-- Yang (top/light side - Engineering - Blue) -->
+                    <path d="M 100,2 A 98,98 0 0,1 100,198 A 49,49 0 0,1 100,100 A 49,49 0 0,0 100,2" 
+                          fill="#3B82F6" opacity="0.3"/>
+                    
+                    <!-- Yin (bottom/dark side - Business - Orange) -->
+                    <path d="M 100,2 A 98,98 0 0,0 100,198 A 49,49 0 0,0 100,100 A 49,49 0 0,1 100,2" 
+                          fill="#F59E0B" opacity="0.3"/>
+                    
+                    <!-- Small circle in Yang (top) -->
+                    <circle cx="100" cy="50" r="15" fill="#F59E0B"/>
+                    
+                    <!-- Small circle in Yin (bottom) -->
+                    <circle cx="100" cy="150" r="15" fill="#3B82F6"/>
+                    
+                    <!-- Center dividing line glow -->
+                    <line x1="100" y1="2" x2="100" y2="198" 
+                          stroke="#fff" stroke-width="1" opacity="0.3"/>
+                </svg>
+
+                <!-- Labels -->
+                <div class="label label-engineering">⚙️ ENGINEERING</div>
+                <div class="label label-business">💼 BUSINESS</div>
+                
+            </div>
+        </div>
+
+    </section>
 
 </body>
 </html>
