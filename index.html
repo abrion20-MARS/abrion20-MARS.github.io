@@ -194,27 +194,27 @@
             <div class="yinyang-container">
                 
                 <!-- Yin-Yang SVG -->
-           <svg class="yinyang" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+         <svg class="yinyang" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
     <!-- Outer circle border -->
     <circle cx="100" cy="100" r="98" fill="none" stroke="#94A3B8" stroke-width="2"/>
     
-    <!-- Background - Full white circle -->
-    <circle cx="100" cy="100" r="96" fill="#FFFFFF"/>
+    <!-- Start with full BLACK circle as base -->
+    <circle cx="100" cy="100" r="96" fill="#000000"/>
     
-    <!-- Black half (left side) -->
-    <path d="M 100,4 A 96,96 0 0,0 100,196 L 100,100 Z" fill="#000000"/>
+    <!-- WHITE half circle (right side) - this is the key fix -->
+    <path d="M 100,4 A 96,96 0 1,1 100,196 A 48,48 0 0,1 100,100 A 48,48 0 0,0 100,4" fill="#FFFFFF"/>
     
-    <!-- White circle in black half (bottom) -->
-    <circle cx="100" cy="150" r="24" fill="#FFFFFF"/>
-    
-    <!-- Black dot in white circle -->
-    <circle cx="100" cy="150" r="10" fill="#000000"/>
-    
-    <!-- Black circle in white half (top) -->
+    <!-- BLACK circle in white half (top) -->
     <circle cx="100" cy="50" r="24" fill="#000000"/>
     
     <!-- White dot in black circle -->
     <circle cx="100" cy="50" r="10" fill="#FFFFFF"/>
+    
+    <!-- WHITE circle in black half (bottom) -->
+    <circle cx="100" cy="150" r="24" fill="#FFFFFF"/>
+    
+    <!-- Black dot in white circle -->
+    <circle cx="100" cy="150" r="10" fill="#000000"/>
 </svg>
 
                 <!-- Labels -->
