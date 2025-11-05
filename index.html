@@ -21,6 +21,67 @@
             overflow-x: hidden;
         }
 
+        /* NAVIGATION BAR */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 20px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-logo {
+    width: 40px;
+    height: 40px;
+    animation: rotate 20s linear infinite;
+}
+
+.nav-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-name:hover {
+    color: #F59E0B;
+    transition: color 0.3s;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #94A3B8;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.nav-links a.active {
+    color: white;
+}
         /* HERO SECTION - Split screen */
         .hero {
             display: flex;
@@ -173,6 +234,35 @@
 </head>
 <body>
 
+     <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <!-- Small yin-yang logo -->
+            <svg class="nav-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="98" fill="none" stroke="#94A3B8" stroke-width="2"/>
+                <circle cx="100" cy="100" r="96" fill="#000000"/>
+                <path d="M 100,4 A 96,96 0 1,1 100,196 A 48,48 0 0,1 100,100 A 48,48 0 0,0 100,4" fill="#FFFFFF"/>
+                <circle cx="100" cy="50" r="24" fill="#000000"/>
+                <circle cx="100" cy="50" r="10" fill="#FFFFFF"/>
+                <circle cx="100" cy="150" r="24" fill="#FFFFFF"/>
+                <circle cx="100" cy="150" r="10" fill="#000000"/>
+            </svg>
+            
+            <!-- Your name -->
+            <a href="#home" class="nav-name">AidenB</a>
+        </div>
+        
+        <!-- Navigation links -->
+        <div class="nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#resume">Resume</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+    
     <!-- HERO SECTION -->
     <section class="hero">
         
