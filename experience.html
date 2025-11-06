@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience | Aiden Brion</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0F172A;
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* NAVIGATION BAR */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-logo {
+            width: 40px;
+            height: 40px;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .nav-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-name:hover {
+            color: #F59E0B;
+            transition: color 0.3s;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-links a.active {
+            color: white;
+        }
+
+        /* MAIN CONTENT */
+        .content {
+            padding-top: 120px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-left: 80px;
+            padding-right: 80px;
+            padding-bottom: 100px;
+        }
+
+        /* PAGE HEADER */
+        .page-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .page-title {
+            font-size: 56px;
+            margin-bottom: 20px;
+        }
+
+        .page-subtitle {
+            font-size: 24px;
+            color: #64748B;
+        }
+
+        /* TIMELINE */
+        .timeline {
+            position: relative;
+            padding-left: 60px;
+        }
+
+        /* Vertical line */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #3B82F6 0%, #F59E0B 100%);
+        }
+
+        /* Timeline item */
+        .timeline-item {
+            position: relative;
+            margin-bottom: 60px;
+            padding-left: 20px;
+        }
+
+        /* Timeline dot */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -47px;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #3B82F6;
+            border: 4px solid #0F172A;
+            box-shadow: 0 0 0 2px #3B82F6;
+            z-index: 1;
+        }
+
+        /* Year label */
+        .timeline-year {
+            position: absolute;
+            left: -140px;
+            top: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #3B82F6;
+        }
+
+        /* Experience card */
+        .experience-card {
+            background-color: rgba(30, 41, 59, 0.5);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .experience-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .experience-header {
+            margin-bottom: 20px;
+        }
+
+        .experience-role {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .experience-company {
+            font-size: 20px;
+            color: #F59E0B;
+            margin-bottom: 8px;
+        }
+
+        .experience-duration {
+            font-size: 16px;
+            color: #64748B;
+        }
+
+        .experience-achievements {
+            list-style: none;
+        }
+
+        .experience-achievements li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #94A3B8;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .experience-achievements li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3B82F6;
+            font-weight: bold;
+        }
+
+        /* Special styling for leadership role */
+        .leadership .experience-company {
+            color: #3B82F6;
+        }
+
+        .leadership::before {
+            background-color: #F59E0B !important;
+            box-shadow: 0 0 0 2px #F59E0B !important;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .timeline {
+                padding-left: 40px;
+            }
+
+            .timeline-year {
+                position: static;
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            .timeline-item::before {
+                left: -27px;
+            }
+
+            .timeline::before {
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <svg class="nav-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="98" fill="none" stroke="#94A3B8" stroke-width="2"/>
+                <circle cx="100" cy="100" r="96" fill="#000000"/>
+                <path d="M 100,4 A 96,96 0 1,1 100,196 A 48,48 0 0,1 100,100 A 48,48 0 0,0 100,4" fill="#FFFFFF"/>
+                <circle cx="100" cy="50" r="24" fill="#000000"/>
+                <circle cx="100" cy="50" r="10" fill="#FFFFFF"/>
+                <circle cx="100" cy="150" r="24" fill="#FFFFFF"/>
+                <circle cx="100" cy="150" r="10" fill="#000000"/>
+            </svg>
+            <a href="index.html" class="nav-name">AidenB</a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="experience.html" class="active">Experience</a>
+            <a href="resume.html">Resume</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+
+        <!-- PAGE HEADER -->
+        <div class="page-header">
+            <h1 class="page-title">My Experience</h1>
+            <p class="page-subtitle">Professional Journey</p>
+        </div>
+
+        <!-- TIMELINE -->
+        <div class="timeline">
+
+            <!-- 2025: SAE Aero President -->
+            <div class="timeline-item leadership">
+                <span class="timeline-year">2023-25</span>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h2 class="experience-role">President</h2>
+                        <h3 class="experience-company">SAE Aero UW</h3>
+                        <p class="experience-duration">December 2023 - June 2025</p>
+                    </div>
+                    <ul class="experience-achievements">
+                        <li>Led 40+ student engineering team from concept to flight-ready RC aircraft for international SAE Aero Design Competition</li>
+                        <li>Created and managed program end-to-end: set standards, ran design reviews, resolved critical system integration issues</li>
+                        <li>Designed and executed prototype testing & validation (wind-tunnel thrust tests, STAR-CCM+ aero, ANSYS structural checks)</li>
+                        <li>Represented UW-Madison at international competition in Van Nuys, CA; coordinated travel, logistics, and sponsor relations</li>
+                        <li>Led fundraising events to secure $20,000 and 5 sponsors; managed $2,000 prototype budget and materials</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 2025: Drone Interceptor -->
+            <div class="timeline-item">
+                <span class="timeline-year">2025</span>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h2 class="experience-role">Senior Design Project</h2>
+                        <h3 class="experience-company">Autonomous Drone Interceptor</h3>
+                        <p class="experience-duration">September 2025 - Present</p>
+                    </div>
+                    <ul class="experience-achievements">
+                        <li>Designing autonomous UAS to intercept hostile drones using ArduPilot for waypoint and navigation control</li>
+                        <li>Intercept points computed from ground-radar system; GPS guides autonomous flight to coordinates</li>
+                        <li>Designing power system to supply full-throttle current safely and reliably</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Summer 2025: Orizon -->
+            <div class="timeline-item">
+                <span class="timeline-year">2025</span>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h2 class="experience-role">Aerospace Engineering Intern</h2>
+                        <h3 class="experience-company">Orizon Aerostructures, KS</h3>
+                        <p class="experience-duration">June 2025 - August 2025</p>
+                    </div>
+                    <ul class="experience-achievements">
+                        <li>Authored plant's Digital Twin roadmap linking ERP, QC, machining, and assembly data to increase throughput ~20% and lessen rework by ~10%</li>
+                        <li>Designed SQL→Power BI pipeline (using AI to optimize DAX and visuals) unifying ERP + floor data for real-time constraint analysis</li>
+                        <li>Diagnosed ERP data integrity gap (schedule lag) and aligned operators and supervisors to rebuild master-data rules</li>
+                        <li>Utilized AI to build Python stock screening application using advanced algorithms to select stocks based on quantitative metrics</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Summer 2024: Grede -->
+            <div class="timeline-item">
+                <span class="timeline-year">2024</span>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h2 class="experience-role">Engineering Intern</h2>
+                        <h3 class="experience-company">Grede LLC, WI</h3>
+                        <p class="experience-duration">June 2024 - August 2024</p>
+                    </div>
+                    <ul class="experience-achievements">
+                        <li>Diagnosed FANUC robot ROM/path issues; recommended layout and program tweaks to reduce stalls</li>
+                        <li>Built 3D plant model in AutoCAD integrating machines & material flow to aid planning and workflow</li>
+                        <li>Designed VTL holding fixture that prevents part rotation, improving cut accuracy and repeatability</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Summer 2023: Pregis -->
+            <div class="timeline-item">
+                <span class="timeline-year">2023</span>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h2 class="experience-role">Mechanical Engineering Intern</h2>
+                        <h3 class="experience-company">Pregis, WI</h3>
+                        <p class="experience-duration">June 2023 - August 2023</p>
+                    </div>
+                    <ul class="experience-achievements">
+                        <li>Fixed film blend variability by characterizing resin densities; stabilized specs for predictable line performance</li>
+                        <li>Prevented waste and downtime resulting in $200,000 annual savings</li>
+                        <li>Developed and executed time studies (roll changes, setup) and recommended changes that cut idle time and improved throughput</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 2021: Started UW Madison -->
+            <div class="timeline-item">
+                <span class="timeline-year">2021</span>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h2 class="experience-role">B.S. Mechanical Engineering</h2>
+                        <h3 class="experience-company">University of Wisconsin-Madison</h3>
+                        <p class="experience-duration">September 2021 - May 2026 (Expected)</p>
+                    </div>
+                    <ul class="experience-achievements">
+                        <li>Dean's List</li>
+                        <li>National Society of Leadership and Success</li>
+                        <li>Relevant Coursework: Thermodynamics, Manufacturing Processes, Finance, Accounting</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
