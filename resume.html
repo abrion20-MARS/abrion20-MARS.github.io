@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume & Contact | Aiden Brion</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0F172A;
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* NAVIGATION BAR */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-logo {
+            width: 40px;
+            height: 40px;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .nav-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-name:hover {
+            color: #F59E0B;
+            transition: color 0.3s;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-links a.active {
+            color: white;
+        }
+
+        /* MAIN CONTENT */
+        .content {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+
+        /* PAGE HEADER */
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-title {
+            font-size: 56px;
+            margin-bottom: 20px;
+        }
+
+        .page-subtitle {
+            font-size: 24px;
+            color: #64748B;
+        }
+
+        /* CONTACT SECTION */
+        .contact-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .email-display {
+            font-size: 28px;
+            color: #3B82F6;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+        }
+
+        .email-display:hover {
+            color: #60A5FA;
+            text-decoration: underline;
+        }
+
+        /* ACTION BUTTONS */
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            font-size: 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-download {
+            background-color: #3B82F6;
+            color: white;
+            border: none;
+        }
+
+        .btn-download:hover {
+            background-color: #2563EB;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-linkedin {
+            background-color: transparent;
+            color: #3B82F6;
+            border: 2px solid #3B82F6;
+        }
+
+        .btn-linkedin:hover {
+            background-color: #3B82F6;
+            color: white;
+        }
+
+        /* RESUME VIEWER */
+        .resume-viewer {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            margin-bottom: 50px;
+        }
+
+        .resume-viewer iframe {
+            width: 100%;
+            height: 800px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        /* Fallback message if PDF doesn't load */
+        .resume-fallback {
+            background-color: rgba(30, 41, 59, 0.5);
+            border: 2px dashed rgba(148, 163, 184, 0.3);
+            border-radius: 12px;
+            padding: 60px;
+            text-align: center;
+            color: #64748B;
+        }
+
+        .resume-fallback h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #94A3B8;
+        }
+
+        .resume-fallback p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        /* FOOTER REPEAT SECTION */
+        .footer-actions {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        .footer-actions .action-buttons {
+            margin-bottom: 20px;
+        }
+
+        .footer-actions .email-display {
+            font-size: 20px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .resume-viewer iframe {
+                height: 600px;
+            }
+
+            .email-display {
+                font-size: 20px;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION BAR (No Contact link) -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <svg class="nav-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="98" fill="none" stroke="#94A3B8" stroke-width="2"/>
+                <circle cx="100" cy="100" r="96" fill="#000000"/>
+                <path d="M 100,4 A 96,96 0 1,1 100,196 A 48,48 0 0,1 100,100 A 48,48 0 0,0 100,4" fill="#FFFFFF"/>
+                <circle cx="100" cy="50" r="24" fill="#000000"/>
+                <circle cx="100" cy="50" r="10" fill="#FFFFFF"/>
+                <circle cx="100" cy="150" r="24" fill="#FFFFFF"/>
+                <circle cx="100" cy="150" r="10" fill="#000000"/>
+            </svg>
+            <a href="index.html" class="nav-name">AidenB</a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="experience.html">Experience</a>
+            <a href="resume.html" class="active">Resume</a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+
+        <!-- PAGE HEADER -->
+        <div class="page-header">
+            <h1 class="page-title">Resume & Contact</h1>
+            <p class="page-subtitle">Let's Connect | View My Credentials</p>
+        </div>
+
+        <!-- CONTACT SECTION -->
+        <div class="contact-section">
+            <a href="mailto:acbrion@wisc.edu" class="email-display">
+                <span>✉️</span>
+                <span>acbrion@wisc.edu</span>
+            </a>
+        </div>
+
+        <!-- ACTION BUTTONS -->
+        <div class="action-buttons">
+            <a href="resume.pdf" download class="btn btn-download">
+                <span>📥</span>
+                <span>Download Resume PDF</span>
+            </a>
+            <a href="www.linkedin.com/in/aiden-brion-marstime" target="_blank" class="btn btn-linkedin">
+                <span>🔗</span>
+                <span>View LinkedIn Profile</span>
+            </a>
+        </div>
+
+        <!-- RESUME VIEWER -->
+        <div class="resume-viewer">
+            <!-- PDF Embed - Replace "resume.pdf" with your actual filename -->
+            <iframe src="resume.pdf" type="application/pdf"></iframe>
+        </div>
+
+        <!-- FALLBACK (shows if PDF not uploaded yet) -->
+        <!-- Uncomment this section and comment out the iframe above if you want a placeholder -->
+        <!--
+        <div class="resume-fallback">
+            <h3>📄 Resume Preview</h3>
+            <p>Upload your resume.pdf file to display it here.</p>
+            <a href="#" class="btn btn-download">Upload Resume</a>
+        </div>
+        -->
+
+        <!-- FOOTER ACTIONS (Repeat) -->
+        <div class="footer-actions">
+            <div class="action-buttons">
+                <a href="resume.pdf" download class="btn btn-download">
+                    <span>📥</span>
+                    <span>Download Resume PDF</span>
+                </a>
+                <a href="https://www.linkedin.com/in/aiden-brion" target="_blank" class="btn btn-linkedin">
+                    <span>🔗</span>
+                    <span>View LinkedIn Profile</span>
+                </a>
+            </div>
+            <a href="mailto:acbrion@wisc.edu" class="email-display">
+                <span>✉️</span>
+                <span>acbrion@wisc.edu</span>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>
