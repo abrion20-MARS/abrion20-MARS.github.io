@@ -263,6 +263,126 @@
                 padding: 20px;
             }
         }
+        /* PROJECT DETAIL CONTENT STYLING */
+.project-content {
+    background-color: rgba(30, 41, 59, 0.5);
+    border-radius: 12px;
+    padding: 50px;
+    border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.project-section {
+    margin-bottom: 50px;
+}
+
+.project-section:last-child {
+    margin-bottom: 0;
+}
+
+.section-title {
+    font-size: 28px;
+    color: #3B82F6;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.section-text {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #CBD5E1;
+    margin-bottom: 20px;
+}
+
+.section-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 20px 0;
+}
+
+.section-list li {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #CBD5E1;
+    margin-bottom: 12px;
+    padding-left: 30px;
+    position: relative;
+}
+
+.section-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #3B82F6;
+    font-weight: bold;
+}
+
+.section-list strong {
+    color: white;
+}
+
+.solution-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.solution-item {
+    background-color: rgba(15, 23, 42, 0.6);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.solution-item:hover {
+    transform: translateY(-4px);
+    border-color: rgba(59, 130, 246, 0.4);
+}
+
+.solution-item h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.solution-item p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #94A3B8;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.tech-tag {
+    padding: 10px 18px;
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #3B82F6;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .solution-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-content {
+        padding: 30px 25px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
+}
     </style>
 </head>
 <body>
@@ -350,16 +470,116 @@
         </section>
         <!-- DETAILED PROJECT SECTIONS (Placeholders for Step 2) -->
         <!-- DIGITAL TWIN DETAILS -->
-        <section id="digital-twin" class="project-detail">
-            <div class="project-detail-header">
-                <h2 class="project-detail-title">📊 Manufacturing Digital Twin</h2>
-                <p class="project-detail-subtitle">Orizon Aerostructures | Summer 2024</p>
+       <!-- DIGITAL TWIN DETAILS -->
+<section id="digital-twin" class="project-detail">
+    <div class="project-detail-header">
+        <h2 class="project-detail-title">📊 Manufacturing Digital Twin</h2>
+        <p class="project-detail-subtitle">Orizon Aerostructures | Summer 2024</p>
+    </div>
+    
+    <div class="project-content">
+        <!-- Overview Section -->
+        <div class="project-section">
+            <h3 class="section-title">Project Overview</h3>
+            <p class="section-text">
+                Digital twins are transforming modern manufacturing, and I experienced this transformation firsthand at Orizon Aerostructures, a Tier 1 aerospace manufacturer producing 75% of F-35 components and wingboxes for Boeing aircraft. Recognizing critical inefficiencies in production visibility across our manufacturing floor, I researched digital twin technology and designed a comprehensive implementation strategy to bridge the gap between our physical operations and digital systems.
+            </p>
+        </div>
+
+        <!-- Challenge Section -->
+        <div class="project-section">
+            <h3 class="section-title">The Challenge</h3>
+            <p class="section-text">
+                Our manufacturing floor faced a fundamental problem: <strong>lack of real-time visibility</strong> into part location, production status, and quality metrics. This created several cascading issues:
+            </p>
+            <ul class="section-list">
+                <li>Delayed delivery forecasts due to manual part tracking</li>
+                <li>Limited visibility into production bottlenecks</li>
+                <li>Reactive (rather than predictive) quality control</li>
+                <li>Disconnected data between ERP systems and shop floor reality</li>
+            </ul>
+            <p class="section-text">
+                I identified that <strong>real-time data capture</strong> was the critical missing piece preventing us from leveraging digital twin technology.
+            </p>
+        </div>
+
+        <!-- Solution Section -->
+        <div class="project-section">
+            <h3 class="section-title">My Solution</h3>
+            <p class="section-text">
+                I designed a multi-layered digital twin implementation strategy combining IoT sensors, computer vision, and data integration:
+            </p>
+            
+            <div class="solution-grid">
+                <div class="solution-item">
+                    <h4>🎥 Vision-Based Part Tracking</h4>
+                    <p>Deployed camera-equipped Raspberry Pi systems at each manufacturing station to scan QR codes on parts, enabling real-time location tracking and accurate delivery forecasting.</p>
+                </div>
+                
+                <div class="solution-item">
+                    <h4>🔧 Smart Tooling Integration</h4>
+                    <p>Proposed sensor-equipped tooling (smart drills with torque and position monitoring) to capture quality metrics in real-time, creating a foundation for predictive quality control.</p>
+                </div>
+                
+                <div class="solution-item">
+                    <h4>📊 Data Pipeline Architecture</h4>
+                    <p>Built SQL → Power BI pipeline integrating ERP and floor data, transforming raw manufacturing data into actionable real-time insights.</p>
+                </div>
+                
+                <div class="solution-item">
+                    <h4>🎯 Continuous Improvement Loop</h4>
+                    <p>Established feedback mechanisms enabling data-driven process optimization and predictive maintenance scheduling.</p>
+                </div>
             </div>
-            <div class="detail-placeholder">
-                <h3>Detailed Content Coming in Step 2</h3>
-                <p>We'll add: full description, photos, downloads, and technical details</p>
+        </div>
+
+        <!-- Impact Section -->
+        <div class="project-section">
+            <h3 class="section-title">Impact & Results</h3>
+            <p class="section-text">
+                Through this implementation, I witnessed firsthand how digital twins can transform manufacturing operations:
+            </p>
+            <ul class="section-list">
+                <li><strong>Reduced rework</strong> through real-time quality monitoring and early defect detection</li>
+                <li><strong>Optimized throughput</strong> by identifying and eliminating production bottlenecks</li>
+                <li><strong>Enabled data-driven decision-making</strong> across production planning and resource allocation</li>
+                <li><strong>Improved delivery accuracy</strong> with real-time part tracking and forecasting</li>
+            </ul>
+        </div>
+
+        <!-- Technical Stack Section -->
+        <div class="project-section">
+            <h3 class="section-title">Technologies Used</h3>
+            <div class="tech-tags">
+                <span class="tech-tag">Power BI</span>
+                <span class="tech-tag">SQL</span>
+                <span class="tech-tag">Raspberry Pi</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">IoT Sensors</span>
+                <span class="tech-tag">Computer Vision</span>
+                <span class="tech-tag">ERP Integration</span>
+                <span class="tech-tag">Real-Time Data Processing</span>
             </div>
-        </section>
+        </div>
+
+        <!-- Key Learnings Section -->
+        <div class="project-section">
+            <h3 class="section-title">Key Learnings</h3>
+            <p class="section-text">
+                This project solidified my understanding that digital twins aren't just about technology—they're about fundamentally changing how manufacturing operations work. The key to successful implementation is:
+            </p>
+            <ul class="section-list">
+                <li>Starting with <strong>real problems</strong> rather than technology solutions</li>
+                <li>Building <strong>incremental capabilities</strong> that deliver immediate value</li>
+                <li>Ensuring <strong>data quality and accessibility</strong> at every layer</li>
+                <li>Creating <strong>actionable insights</strong> that drive behavioral change</li>
+            </ul>
+            <p class="section-text">
+                This experience showed me the transformative potential of digital twins and reinforced my commitment to building the next generation of industrial operations platforms.
+            </p>
+        </div>
+    </div>
+</section>
         <!-- SAE AERO DETAILS -->
         <section id="sae-aero" class="project-detail">
             <div class="project-detail-header">
