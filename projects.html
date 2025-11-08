@@ -11,7 +11,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         /* Body */
         body {
             font-family: Arial, sans-serif;
@@ -19,12 +18,10 @@
             color: white;
             min-height: 100vh;
         }
-
         /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
         }
-
         /* NAVIGATION BAR */
         .navbar {
             position: fixed;
@@ -40,42 +37,35 @@
             z-index: 1000;
             border-bottom: 1px solid rgba(148, 163, 184, 0.1);
         }
-
         .nav-left {
             display: flex;
             align-items: center;
             gap: 15px;
         }
-
         .nav-logo {
             width: 40px;
             height: 40px;
             animation: rotate 20s linear infinite;
         }
-
         @keyframes rotate {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
-
         .nav-name {
             font-size: 24px;
             font-weight: bold;
             color: white;
             text-decoration: none;
         }
-
         .nav-name:hover {
             color: #F59E0B;
             transition: color 0.3s;
         }
-
         .nav-links {
             display: flex;
             gap: 40px;
             align-items: center;
         }
-
         .nav-links a {
             color: #94A3B8;
             text-decoration: none;
@@ -83,38 +73,31 @@
             font-weight: 500;
             transition: color 0.3s;
         }
-
         .nav-links a:hover {
             color: white;
         }
-
         .nav-links a.active {
             color: white;
         }
-
         /* MAIN CONTENT */
         .content {
             padding-top: 120px;
             padding-bottom: 80px;
         }
-
         /* PAGE HEADER */
         .page-header {
             text-align: center;
             margin-bottom: 80px;
             padding: 0 80px;
         }
-
         .page-title {
             font-size: 56px;
             margin-bottom: 20px;
         }
-
         .page-subtitle {
             font-size: 24px;
             color: #64748B;
         }
-
         /* HERO PROJECTS SECTION */
         .hero-projects {
             display: grid;
@@ -125,7 +108,6 @@
             padding: 0 80px;
             margin-bottom: 100px;
         }
-
         .hero-card {
             background-color: rgba(30, 41, 59, 0.5);
             border-radius: 16px;
@@ -134,12 +116,10 @@
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
         }
-
         .hero-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
-
         .hero-image {
             width: 100%;
             height: 300px;
@@ -147,52 +127,65 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 48px;
             border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+            overflow: hidden;
+            position: relative;
         }
-
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .hero-card:hover .hero-image img {
+            transform: scale(1.05);
+        }
+        /* Fallback for missing images */
+        .hero-image-fallback {
+            font-size: 80px;
+            opacity: 0.3;
+        }
         .hero-card-content {
             padding: 30px;
         }
-
         .hero-card-title {
             font-size: 28px;
             margin-bottom: 15px;
             color: white;
         }
-
         .hero-card-desc {
             font-size: 16px;
             color: #94A3B8;
             margin-bottom: 20px;
             line-height: 1.6;
         }
-
         .hero-card-tags {
             display: flex;
             gap: 10px;
             margin-bottom: 20px;
+            flex-wrap: wrap;
         }
-
         .tag {
             padding: 6px 14px;
             border-radius: 20px;
             font-size: 13px;
             font-weight: 600;
         }
-
         .tag-engineering {
             background-color: rgba(59, 130, 246, 0.2);
             color: #3B82F6;
             border: 1px solid rgba(59, 130, 246, 0.3);
         }
-
         .tag-business {
             background-color: rgba(245, 158, 11, 0.2);
             color: #F59E0B;
             border: 1px solid rgba(245, 158, 11, 0.3);
         }
-
+        .tag-leadership {
+            background-color: rgba(139, 92, 246, 0.2);
+            color: #8B5CF6;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
         .hero-card-button {
             display: inline-block;
             padding: 12px 24px;
@@ -203,11 +196,9 @@
             font-weight: 600;
             transition: background-color 0.3s;
         }
-
         .hero-card-button:hover {
             background-color: #2563EB;
         }
-
         /* DETAILED SECTIONS (placeholders for Step 2) */
         .project-detail {
             max-width: 1400px;
@@ -215,21 +206,17 @@
             padding: 0 80px;
             scroll-margin-top: 100px;
         }
-
         .project-detail-header {
             margin-bottom: 40px;
         }
-
         .project-detail-title {
             font-size: 42px;
             margin-bottom: 20px;
         }
-
         .project-detail-subtitle {
             font-size: 20px;
             color: #64748B;
         }
-
         .detail-placeholder {
             background-color: rgba(30, 41, 59, 0.5);
             border: 2px dashed rgba(148, 163, 184, 0.3);
@@ -238,24 +225,44 @@
             text-align: center;
             color: #64748B;
         }
-
         .detail-placeholder h3 {
             font-size: 24px;
             margin-bottom: 10px;
             color: #94A3B8;
         }
-
         /* RESPONSIVE */
         @media (max-width: 1200px) {
             .hero-projects {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
+            .navbar {
+                padding: 20px 40px;
+            }
+            .page-header {
+                padding: 0 40px;
+            }
+            .project-detail {
+                padding: 0 40px;
+            }
+        }
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 36px;
+            }
+            .page-subtitle {
+                font-size: 18px;
+            }
+            .hero-card-title {
+                font-size: 24px;
+            }
+            .navbar {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
-
     <!-- NAVIGATION BAR -->
     <nav class="navbar">
         <div class="nav-left">
@@ -278,23 +285,19 @@
             <a href="resume.html">Resume</a>
         </div>
     </nav>
-
     <!-- MAIN CONTENT -->
     <div class="content">
-
         <!-- PAGE HEADER -->
         <div class="page-header">
             <h1 class="page-title">My Projects</h1>
             <p class="page-subtitle">Engineering & Business Portfolio</p>
         </div>
-
         <!-- HERO PROJECTS (Top 3) -->
         <section class="hero-projects">
-
             <!-- PROJECT 1: Digital Twin -->
             <div class="hero-card" onclick="document.getElementById('digital-twin').scrollIntoView();">
                 <div class="hero-image">
-                    📊
+                    <img src="digital-twin.jpg" alt="Digital Twin Manufacturing Dashboard" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'hero-image-fallback\'>📊</div>';">
                 </div>
                 <div class="hero-card-content">
                     <h2 class="hero-card-title">Manufacturing Digital Twin</h2>
@@ -308,11 +311,10 @@
                     <a href="#digital-twin" class="hero-card-button">View Details ↓</a>
                 </div>
             </div>
-
             <!-- PROJECT 2: SAE Aero -->
             <div class="hero-card" onclick="document.getElementById('sae-aero').scrollIntoView();">
                 <div class="hero-image">
-                    ✈️
+                    <img src="sae-aero.jpg" alt="SAE Aero Competition Aircraft" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'hero-image-fallback\'>✈️</div>';">
                 </div>
                 <div class="hero-card-content">
                     <h2 class="hero-card-title">SAE Aero Aircraft</h2>
@@ -321,16 +323,15 @@
                     </p>
                     <div class="hero-card-tags">
                         <span class="tag tag-engineering">Engineering</span>
-                        <span class="tag tag-business">Leadership</span>
+                        <span class="tag tag-leadership">Leadership</span>
                     </div>
                     <a href="#sae-aero" class="hero-card-button">View Details ↓</a>
                 </div>
             </div>
-
             <!-- PROJECT 3: Drone Interceptor -->
             <div class="hero-card" onclick="document.getElementById('drone-interceptor').scrollIntoView();">
                 <div class="hero-image">
-                    🚁
+                    <img src="drone-interceptor.jpg" alt="Autonomous Drone Interceptor" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'hero-image-fallback\'>🚁</div>';">
                 </div>
                 <div class="hero-card-content">
                     <h2 class="hero-card-title">Autonomous Drone Interceptor</h2>
@@ -343,23 +344,19 @@
                     <a href="#drone-interceptor" class="hero-card-button">View Details ↓</a>
                 </div>
             </div>
-
         </section>
-
         <!-- DETAILED PROJECT SECTIONS (Placeholders for Step 2) -->
-
         <!-- DIGITAL TWIN DETAILS -->
         <section id="digital-twin" class="project-detail">
             <div class="project-detail-header">
                 <h2 class="project-detail-title">📊 Manufacturing Digital Twin</h2>
-                <p class="project-detail-subtitle">Orizon Aerostructures | Summer 2025</p>
+                <p class="project-detail-subtitle">Orizon Aerostructures | Summer 2024</p>
             </div>
             <div class="detail-placeholder">
                 <h3>Detailed Content Coming in Step 2</h3>
                 <p>We'll add: full description, photos, downloads, and technical details</p>
             </div>
         </section>
-
         <!-- SAE AERO DETAILS -->
         <section id="sae-aero" class="project-detail">
             <div class="project-detail-header">
@@ -371,20 +368,17 @@
                 <p>We'll add: full description, photos, downloads, and technical details</p>
             </div>
         </section>
-
         <!-- DRONE INTERCEPTOR DETAILS -->
         <section id="drone-interceptor" class="project-detail">
             <div class="project-detail-header">
                 <h2 class="project-detail-title">🚁 Autonomous Drone Interceptor</h2>
-                <p class="project-detail-subtitle">Senior Design Project | September 2025 - Present</p>
+                <p class="project-detail-subtitle">Senior Design Project | September 2024 - Present</p>
             </div>
             <div class="detail-placeholder">
                 <h3>Detailed Content Coming in Step 2</h3>
                 <p>We'll add: full description, photos, downloads, and technical details</p>
             </div>
         </section>
-
     </div>
-
 </body>
 </html>
