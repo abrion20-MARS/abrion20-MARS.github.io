@@ -383,6 +383,128 @@
         font-size: 24px;
     }
 }
+        /* TIMELINE STYLING */
+.timeline {
+    position: relative;
+    margin-top: 40px;
+}
+
+.timeline-item {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.timeline-dot {
+    width: 20px;
+    height: 20px;
+    background-color: #3B82F6;
+    border-radius: 50%;
+    border: 4px solid #0F172A;
+    box-shadow: 0 0 0 2px #3B82F6;
+    z-index: 2;
+}
+
+.timeline-dot-current {
+    width: 24px;
+    height: 24px;
+    background-color: #F59E0B;
+    border-radius: 50%;
+    border: 4px solid #0F172A;
+    box-shadow: 0 0 0 2px #F59E0B, 0 0 20px rgba(245, 158, 11, 0.4);
+    z-index: 2;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 2px #F59E0B, 0 0 20px rgba(245, 158, 11, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 2px #F59E0B, 0 0 30px rgba(245, 158, 11, 0.6);
+    }
+}
+
+.timeline-line {
+    width: 3px;
+    flex-grow: 1;
+    background: linear-gradient(180deg, #3B82F6 0%, rgba(59, 130, 246, 0.3) 100%);
+    margin-top: 8px;
+}
+
+.timeline-content {
+    padding-bottom: 10px;
+}
+
+.timeline-title {
+    font-size: 22px;
+    color: white;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.timeline-text {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #CBD5E1;
+}
+
+.timeline-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 15px 0;
+}
+
+.timeline-list li {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #CBD5E1;
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.timeline-list li::before {
+    content: "•";
+    position: absolute;
+    left: 8px;
+    color: #3B82F6;
+    font-size: 20px;
+}
+
+/* Responsive timeline */
+@media (max-width: 768px) {
+    .timeline-item {
+        grid-template-columns: 40px 1fr;
+        gap: 20px;
+    }
+    
+    .timeline-dot {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .timeline-dot-current {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .timeline-title {
+        font-size: 20px;
+    }
+}
     </style>
 </head>
 <body>
@@ -580,28 +702,201 @@
         </div>
     </div>
 </section>
-        <!-- SAE AERO DETAILS -->
-        <section id="sae-aero" class="project-detail">
-            <div class="project-detail-header">
-                <h2 class="project-detail-title">✈️ SAE Aero Competition Aircraft</h2>
-                <p class="project-detail-subtitle">SAE Aero UW | December 2023 - June 2025</p>
+     <!-- SAE AERO DETAILS -->
+<section id="sae-aero" class="project-detail">
+    <div class="project-detail-header">
+        <h2 class="project-detail-title">✈️ SAE Aero Competition Aircraft</h2>
+        <p class="project-detail-subtitle">SAE Aero UW | December 2023 - Present</p>
+    </div>
+    
+    <div class="project-content">
+        <!-- Overview Section -->
+        <div class="project-section">
+            <h3 class="section-title">From Zero to Flight: Building UW Madison's SAE Aero Team</h3>
+            <p class="section-text">
+                I founded SAE Aero UW with a vision: to design, build, and fly competition RC aircraft that could compete on the national stage. What started as a handful of passionate students has grown into a 40+ member organization that represents UW Madison at the international SAE Aero Design Competition. This is the story of how we turned failure into success, and ambition into results.
+            </p>
+        </div>
+
+        <!-- Timeline Section -->
+        <div class="project-section">
+            <h3 class="section-title">The Journey</h3>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-line"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4 class="timeline-title">Spring 2023 - The Beginning</h4>
+                        <p class="timeline-text">
+                            Founded SAE Aero UW with a small team of dedicated students. We spent the entire spring semester on our initial aircraft design, learning CAD modeling, aerodynamics calculations, and structural analysis. Every decision was new territory—airfoil selection, material choices, manufacturing methods.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-line"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4 class="timeline-title">Summer 2023 - First Build</h4>
+                        <p class="timeline-text">
+                            Committed my summer to building our first aircraft. Working solo in the shop, I fabricated the wings, fuselage, and control surfaces. By summer's end, we had a complete aircraft ready for flight testing. The build taught me invaluable lessons about manufacturing tolerances, assembly procedures, and the reality of turning CAD into physical hardware.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-line"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4 class="timeline-title">Fall 2023 - The Crash</h4>
+                        <p class="timeline-text">
+                            Our first flight test was a spectacular failure. Insufficient lift at takeoff speed sent our aircraft tumbling off the runway. It was crushing—months of work destroyed in seconds. But failure is where learning begins. We analyzed the data: our lift calculations were off, our wing loading was too high, and our motor selection was inadequate.
+                        </p>
+                        <p class="timeline-text" style="margin-top: 15px;">
+                            <strong>But something unexpected happened:</strong> The crash generated buzz. Students wanted to be part of a team brave enough to fail publicly and get back up. Our team exploded to 20+ members practically overnight.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-line"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4 class="timeline-title">2023-2024 - Scaling Up</h4>
+                        <p class="timeline-text">
+                            With our expanded team, we set an ambitious goal: compete at SAE Aero Design and fly successfully. This wasn't just a bigger aircraft—it was a complete organizational challenge:
+                        </p>
+                        <ul class="timeline-list">
+                            <li><strong>Technical complexity:</strong> More sophisticated design with increased payload capacity</li>
+                            <li><strong>Extended timeline:</strong> Design, fabrication, testing, and iteration cycles</li>
+                            <li><strong>Major fundraising:</strong> Secured ~$15,000 for prototypes, materials, travel, and competition entry</li>
+                            <li><strong>Team management:</strong> Coordinated 40+ students across design, manufacturing, testing, and business teams</li>
+                        </ul>
+                        <p class="timeline-text" style="margin-top: 15px;">
+                            The year was a grind. Endless nights in the shop, design reviews, manufacturing setbacks, and constant iteration. But the team was unified by a single goal: fly at competition.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-line"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4 class="timeline-title">Spring 2024 - We Flew!</h4>
+                        <p class="timeline-text">
+                            Second flight test: engines roared, the aircraft accelerated down the runway, and then—liftoff. We flew! After a year of setbacks and grinding work, we had a competition-ready aircraft. We made final refinements and shipped everything to Van Nuys, California.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4 class="timeline-title">SAE Aero Design Competition 2024</h4>
+                        <p class="timeline-text">
+                            We competed against teams from around the world in Van Nuys. While we placed in the back half of the field, <strong>we achieved our primary goal: flying at competition.</strong> For a team that didn't exist 18 months earlier, and that had crashed spectacularly just months before, this was a monumental success.
+                        </p>
+                        <p class="timeline-text" style="margin-top: 15px;">
+                            The experience was invaluable—we learned what it takes to compete at the highest level, identified our weaknesses, and returned to Madison with clear goals for improvement.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot-current"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4 class="timeline-title">2024-2025 - Optimization Year</h4>
+                        <p class="timeline-text">
+                            Now we're focused on eliminating inefficiencies and competing among the top teams in the world. We've restructured our design process, improved our manufacturing workflows, and implemented lessons learned from competition. The goal: top 10 finish at SAE Aero Design 2025.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="detail-placeholder">
-                <h3>Detailed Content Coming in Step 2</h3>
-                <p>We'll add: full description, photos, downloads, and technical details</p>
+        </div>
+
+        <!-- Leadership Section -->
+        <div class="project-section">
+            <h3 class="section-title">Leadership & Impact</h3>
+            <div class="solution-grid">
+                <div class="solution-item">
+                    <h4>👥 Team Building</h4>
+                    <p>Grew organization from 3 founding members to 40+ students across engineering disciplines. Established sustainable team structure with clear roles and succession planning.</p>
+                </div>
+                
+                <div class="solution-item">
+                    <h4>💰 Fundraising</h4>
+                    <p>Secured $15,000+ in funding through corporate sponsorships, university grants, and fundraising initiatives to support prototyping, materials, and competition travel.</p>
+                </div>
+                
+                <div class="solution-item">
+                    <h4>🎯 Project Management</h4>
+                    <p>Coordinated complex timelines across design, manufacturing, and testing phases. Managed budgets, deadlines, and deliverables for year-long competition cycle.</p>
+                </div>
+                
+                <div class="solution-item">
+                    <h4>🔧 Hands-On Engineering</h4>
+                    <p>Led by example—personally built our first aircraft, taught manufacturing techniques, and remained deeply involved in technical decision-making throughout all phases.</p>
+                </div>
             </div>
-        </section>
-        <!-- DRONE INTERCEPTOR DETAILS -->
-        <section id="drone-interceptor" class="project-detail">
-            <div class="project-detail-header">
-                <h2 class="project-detail-title">🚁 Autonomous Drone Interceptor</h2>
-                <p class="project-detail-subtitle">Senior Design Project | September 2024 - Present</p>
+        </div>
+
+        <!-- Technical Skills Section -->
+        <div class="project-section">
+            <h3 class="section-title">Technical Skills Developed</h3>
+            <div class="tech-tags">
+                <span class="tech-tag">Aircraft Design</span>
+                <span class="tech-tag">CAD (SolidWorks)</span>
+                <span class="tech-tag">Aerodynamics Analysis</span>
+                <span class="tech-tag">Composite Manufacturing</span>
+                <span class="tech-tag">CNC Machining</span>
+                <span class="tech-tag">Flight Testing</span>
+                <span class="tech-tag">Systems Integration</span>
+                <span class="tech-tag">Project Management</span>
+                <span class="tech-tag">Team Leadership</span>
+                <span class="tech-tag">Budget Management</span>
+                <span class="tech-tag">Technical Documentation</span>
             </div>
-            <div class="detail-placeholder">
-                <h3>Detailed Content Coming in Step 2</h3>
-                <p>We'll add: full description, photos, downloads, and technical details</p>
-            </div>
-        </section>
+        </div>
+
+        <!-- Key Learnings Section -->
+        <div class="project-section">
+            <h3 class="section-title">What I Learned</h3>
+            <ul class="section-list">
+                <li><strong>Failure is feedback:</strong> Our first crash was devastating but generated the momentum that built our team. Embracing failure publicly created a culture of bold experimentation.</li>
+                <li><strong>Leadership is service:</strong> The best way to lead is to do the hardest work yourself first. Building that first aircraft alone earned credibility that made everything else possible.</li>
+                <li><strong>Systems thinking matters:</strong> Aircraft design isn't just aerodynamics—it's manufacturing feasibility, cost constraints, timeline management, and team capabilities all balanced together.</li>
+                <li><strong>Iteration is everything:</strong> No design survives first contact with reality. Build fast, test early, learn quickly, and iterate constantly.</li>
+                <li><strong>Team culture compounds:</strong> A team that celebrates both success and failure together will outperform a more talented team that fears mistakes.</li>
+            </ul>
+        </div>
+
+        <!-- Future Goals Section -->
+        <div class="project-section">
+            <h3 class="section-title">Looking Ahead</h3>
+            <p class="section-text">
+                SAE Aero UW is now a recognized student organization at UW Madison with a clear trajectory toward competitive excellence. We're not just building aircraft—we're building engineers who understand that real innovation comes from getting your hands dirty, learning from failures, and never backing down from ambitious goals.
+            </p>
+            <p class="section-text">
+                <strong>2025 Goal:</strong> Top 10 finish at SAE Aero Design Competition. We know what it takes now. Time to execute.
+            </p>
+        </div>
+    </div>
+</section>
     </div>
 </body>
 </html>
